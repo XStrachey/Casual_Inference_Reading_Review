@@ -1,17 +1,92 @@
+# Introduction
+
+- This study provides **causal evidence** that **racial heterogeneity shapes punishment severity through electorate preferences and local discretion**, reinforcing the role of **ingroup bias in criminal justice policy**.
+- This paper identifies a **non-monotonic, inverted U-shaped relationship** between **local punishment severity** and **Black population share** in a jurisdiction.
+
 ```mermaid
 graph TD;
-    %% 定义节点
-    A[Racial Heterogeneity] -->|Observable| B[Electoral Preferences];
-    B-.->|Unobservable| C[Punishment Severity];
-    D[Jurisdiction] -->|Observable| C;
-    E[Defendant Characteristics] -->|Observable| C;
-    E -->|Observable| F[Arrest Outcomes];
-    C -->|Observable| G[Incarceration Probability];
+    subgraph Observed Nodes
+        R[Racial Heterogeneity] -->|Influences| J[Jurisdiction];
+        R -->|Electorate Preferences| P[Prosecutorial & Judicial Discretion];
+        J -->|Causal Effect| S[Punishment Severity];
+        P -->|Mediates| S;
+        S -->|Determines| C[Charge Outcomes];
+        J -->|Direct Effect| C;
+        P -->|Direct Effect| C;
+        X[Defendant Characteristics] -->|Controls in Model| C;
+        X -->|Controls in Model| S;
+        X -->|Controls in Model| J;
+    end
 
-    %% 额外样式，区分不可观测变量
-    classDef unobservable fill:#f9f,stroke:#333,stroke-dasharray:5 5;
-    class B unobservable;
+    subgraph Unobserved Confounders
+        U[Unobserved Factors] -.-> J;
+        U -.-> S;
+        U -.-> C;
+    end
 ```
+
+### **解释 DAG 关键结构**
+#### **1. 主要因果路径**
+- **\( J \) (Jurisdiction) → \( S \) (Punishment Severity) → \( C \) (Charge Outcomes)**  
+  - **核心因果效应**：司法辖区的差异影响惩罚严厉程度，进而决定案件结果（如是否监禁）。
+  
+- **\( R \) (Racial Heterogeneity) → \( J \) (Jurisdiction) → \( S \) (Punishment Severity)**  
+  - **选民偏好（Electorate Preferences）** 受种族异质性影响，进而影响地方法院的惩罚风格。
+
+- **\( P \) (Prosecutorial & Judicial Discretion) → \( S \) (Punishment Severity) → \( C \) (Charge Outcomes)**  
+  - **地方检察官 & 法官的自由裁量权** 影响惩罚政策，最终决定案件处理方式。
+
+#### **2. 直接 & 间接影响**
+- **\( J \) (Jurisdiction) → \( C \) (Charge Outcomes)**
+  - 司法辖区可能 **独立于 \( S \) 影响案件处理**，如某些县的法官更倾向于判刑。
+
+- **\( P \) (Prosecutorial & Judicial Discretion) → \( C \) (Charge Outcomes)**
+  - 法律工作者在案件处理过程中有 **自由裁量权**，影响最终结果。
+
+#### **3. 不可观测因素（\( U \)）**
+- 可能的潜在混淆变量（**虚线连接**）：
+  - **社会经济因素**（如贫困率、犯罪率）影响 **\( J \)**（司法辖区的风格）和 **\( C \)**（案件结果）。
+  - **政策环境**（如历史上不同地区的惩罚文化）可能同时影响 **\( S \)** 和 **\( C \)**。
+
+---
+
+### **关键因果推断方法**
+1. **固定效应模型（Fixed Effects Model）**
+   - 通过控制 **被告特征 \( X \)**（种族、犯罪史）减少混淆因素的影响。
+  
+2. **多司法辖区被告（Multi-Jurisdiction Defendants）**
+   - 研究 **同一被告在不同司法辖区的案件**，确保 **惩罚严厉程度是司法辖区的因果效应，而非被告自身特征导致的选择偏误**。
+
+---
+
+### **总结**
+- 论文的核心因果路径：  
+  **\( J \) (Jurisdiction) → \( S \) (Punishment Severity) → \( C \) (Charge Outcomes)，并受到 \( R \) (Racial Heterogeneity) 和 \( P \) (Prosecutorial & Judicial Discretion) 影响**。
+- 研究通过：
+  1. **控制可观测变量 \( X \) 以减少混淆**。
+  2. **利用多辖区被告进行准实验分析，确保因果关系稳健**。
+ 
+## Research Target Selection
+
+### Harmonization Difficulties in Research Design
+
+| **Challenge**              | **Description** |
+|---------------------------|---------------|
+| **Cross-Country Comparison Issues** | Lack of harmonized micro-level data and differences in crime definitions make cross-country comparisons unreliable. |
+| **Within-U.S. Variation** | Even within the U.S., jurisdictions enforce laws differently, despite having the same state-level criminal code. |
+| **Data Harmonization Across Jurisdictions** | Differences in data availability, crime categorization, and recording methods create inconsistencies across states. |
+| **Solution: Focusing on Southern States** | By studying jurisdictions within the same state, the authors control for statutory differences and isolate discretionary enforcement variations. |
+
+### **Comparison of This Study vs. Past Research: Inclusion of Arrest Charges**
+
+| **Aspect**                     | **This Study (Feigenberg & Miller, 2021)** | **Past Research** |
+|--------------------------------|---------------------------------|------------------|
+| **Data Scope** | Includes **all arrest charges**, even if later dropped or downgraded. | Often limited to **convictions** or **incarceration cases only**. |
+| **Charge Processing Coverage** | Tracks cases from **arrest → prosecution → sentencing**, capturing discretionary decisions by prosecutors. | Starts from **conviction stage**, missing prosecutor discretion and dropped charges. |
+| **Potential Selection Bias** | Avoids bias by considering all charges, not just those leading to conviction. | **Selection bias**: Only analyzing convicted cases can distort estimates of sentencing disparities. |
+| **Incarceration Decision Analysis** | Measures **whether a charge leads to incarceration**, not just sentence length. | Often examines **sentence severity (length)** rather than **whether incarceration occurs**. |
+| **Impact on Punishment Severity Estimation** | Captures the **full decision-making process**, including **prosecutorial discretion** (charge reductions, plea deals). | Misses prosecutorial discretion, potentially **underestimating racial disparities**. |
+
 # Data
 
 ## **1. Data Sources & Time Coverage**
