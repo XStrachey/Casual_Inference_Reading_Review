@@ -25,8 +25,8 @@ graph TD;
     end
 ```
 
-### **解释 DAG 关键结构**
-#### **1. 主要因果路径**
+## **解释 DAG 关键结构**
+### **1. 主要因果路径**
 - **\( J \) (Jurisdiction) → \( S \) (Punishment Severity) → \( C \) (Charge Outcomes)**  
   - **核心因果效应**：司法辖区的差异影响惩罚严厉程度，进而决定案件结果（如是否监禁）。
   
@@ -36,14 +36,14 @@ graph TD;
 - **\( P \) (Prosecutorial & Judicial Discretion) → \( S \) (Punishment Severity) → \( C \) (Charge Outcomes)**  
   - **地方检察官 & 法官的自由裁量权** 影响惩罚政策，最终决定案件处理方式。
 
-#### **2. 直接 & 间接影响**
+### **2. 直接 & 间接影响**
 - **\( J \) (Jurisdiction) → \( C \) (Charge Outcomes)**
   - 司法辖区可能 **独立于 \( S \) 影响案件处理**，如某些县的法官更倾向于判刑。
 
 - **\( P \) (Prosecutorial & Judicial Discretion) → \( C \) (Charge Outcomes)**
   - 法律工作者在案件处理过程中有 **自由裁量权**，影响最终结果。
 
-#### **3. 不可观测因素（\( U \)）**
+### **3. 不可观测因素（\( U \)）**
 - 可能的潜在混淆变量（**虚线连接**）：
   - **社会经济因素**（如贫困率、犯罪率）影响 **\( J \)**（司法辖区的风格）和 **\( C \)**（案件结果）。
   - **政策环境**（如历史上不同地区的惩罚文化）可能同时影响 **\( S \)** 和 **\( C \)**。
@@ -77,7 +77,7 @@ graph TD;
 | **Data Harmonization Across Jurisdictions** | Differences in data availability, crime categorization, and recording methods create inconsistencies across states. |
 | **Solution: Focusing on Southern States** | By studying jurisdictions within the same state, the authors control for statutory differences and isolate discretionary enforcement variations. |
 
-### **Comparison of This Study vs. Past Research: Inclusion of Arrest Charges**
+## **Comparison of This Study vs. Past Research: Inclusion of Arrest Charges**
 
 | **Aspect**                     | **This Study (Feigenberg & Miller, 2021)** | **Past Research** |
 |--------------------------------|---------------------------------|------------------|
