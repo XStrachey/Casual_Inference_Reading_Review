@@ -65,10 +65,8 @@ graph TD;
 - 研究通过：
   1. **控制可观测变量 \( X \) 以减少混淆**。
   2. **利用多辖区被告进行准实验分析，确保因果关系稳健**。
- 
-## Research Target Selection
 
-### Harmonization Difficulties in Research Design
+## Harmonization Difficulties in Research Design
 
 | **Challenge**              | **Description** |
 |---------------------------|---------------|
