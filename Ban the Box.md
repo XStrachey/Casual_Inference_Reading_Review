@@ -78,3 +78,48 @@ The study investigates the effects of "Ban the Box" (BTB) policies on employment
 3. **Methodological Innovation in Audit Studies**  
    - Extends the **audit study method**, traditionally used for **one-time discrimination assessments**, to evaluate **policy changes**.  
    - Combines **field experiments with quasi-experimental difference-in-differences analysis**, enhancing causal inference.  
+
+# **Randomization and Experimental Design in the Study**  
+
+The study employs a **randomized controlled trial (RCT) approach** within a field experiment to isolate the causal effects of Ban the Box (BTB) policies. The key aspects of randomization are as follows:  
+
+1. **Random Assignment of Applicant Characteristics**  
+   - Each fictitious job applicant was **randomly assigned**:  
+     - A **racial identity** (Black or White) using distinctively Black- or White-sounding names.  
+     - A **felony conviction status** (either having or not having a criminal record).  
+     - Additional characteristics such as **GED versus high school diploma** and **employment gap presence**.  
+
+2. **Pairwise Application Submission**  
+   - Applications were sent in **matched pairs** to the same job posting, ensuring that:  
+     - Each employer received one Black and one White applicant.  
+     - Other attributes (besides race and conviction status) were held constant within each pair.  
+
+3. **Temporal Randomization (Before vs. After BTB Implementation)**  
+   - The study capitalized on **policy timing variation**, submitting applications **both before and after** BTB laws went into effect in:  
+     - **New Jersey** (March 1, 2015).  
+     - **New York City** (October 27, 2015).  
+   - This design allowed the researchers to estimate **pre-post differences** while controlling for broader labor market trends.  
+
+4. **Comparison Across Affected and Unaffected Employers**  
+   - Some employers already **did not ask about criminal records before BTB**, creating a **natural control group**.  
+   - The study used a **triple-differences approach** (difference-in-differences-in-differences, DDD) to compare:  
+     - Employers **forced to remove** the criminal record question due to BTB.  
+     - Employers **who never asked** about criminal records, serving as a baseline comparison.  
+
+## **Triple-Differences Approach (DDD) Explained**  
+
+The **triple-differences (difference-in-differences-in-differences, DDD) approach** is an **extension of the standard difference-in-differences (DID) method**, designed to control for **confounding factors** and strengthen causal inference.  
+
+**1. Standard Difference-in-Differences (DID)**
+DID compares **two groups** (treatment vs. control) **before and after** a policy change to estimate its causal effect. However, if other external factors change over time, DID may still capture **non-policy-related effects**.  
+
+**2. Triple-Differences (DDD) in This Study**
+The study refines DID by introducing a **third level of comparison**:  
+- **First Difference**: Callback rate difference **before vs. after BTB** for employers affected by the policy.  
+- **Second Difference**: Callback rate difference **before vs. after BTB** for employers **not affected** (who never asked about criminal records).  
+- **Third Difference**: Subtracts the second difference from the first, isolating the true **BTB effect** by removing trends that affected both groups.  
+
+**3. Why Use DDD?**
+- Controls for **time trends** affecting both treatment and control groups.  
+- Removes **baseline racial disparities** in hiring that existed before BTB.  
+- Identifies how **BTB uniquely impacted racial discrimination** beyond general hiring trends.  
